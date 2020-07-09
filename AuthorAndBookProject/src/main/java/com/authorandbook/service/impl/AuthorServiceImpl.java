@@ -13,37 +13,37 @@ import com.authorandbook.service.AuthorService;
 public class AuthorServiceImpl implements AuthorService{
 
 	@Autowired
-	private AuthorRepository authorDAO;
+	private AuthorRepository authorRep;
 	
 	@Override
 	@Transactional
 	public void save(Author author) {		
-		authorDAO.save(author);
+		authorRep.save(author);
 	}
 
 	@Override
 	@Transactional
 	public void update(Author author, int id) {
-		Author newAuthor = authorDAO.findById(id);
-		newAuthor = author;
-		authorDAO.save(newAuthor);
+		delete(id);
+		author.setId(id);
+		authorRep.save(author);
 	}
 
 	@Override
 	@Transactional
 	public void delete(int id) {
-		authorDAO.deleteById(id);
+		authorRep.deleteById(id);
 	}
 
 	@Override
 	public Author findByAuthorId(int id) {
-		Author newAuthor = authorDAO.findById(id);		
+		Author newAuthor = authorRep.findById(id);		
 		return newAuthor;
 	}
 
 	@Override
 	public List<Author> getAll() {
-		List<Author> allAuthors = authorDAO.listAllAuthor();
+		List<Author> allAuthors = authorRep.listAllAuthor();
 		return allAuthors;
 	}
 }
