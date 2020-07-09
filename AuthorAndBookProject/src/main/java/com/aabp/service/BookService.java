@@ -10,9 +10,9 @@ import com.aabp.model.Book;
 public interface BookService {
 
 	public void save(Book book);
-	public void update(Book book,Long id);
-	public void delete(Long id);
-	public Book findByBookId(Long id);
+	public void update(Book book,int id);
+	public void delete(int id);
+	public Book findByBookId(int id);
 	public List<Book> findByName(String bookName);
 	public List<Book> getAll();
 }

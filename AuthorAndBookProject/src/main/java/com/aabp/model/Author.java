@@ -1,5 +1,6 @@
 package com.aabp.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,7 +12,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "t_author")
-public class Author {
+public class Author implements Serializable{
+
+	private static final long serialVersionUID = -3776226123284943027L;
 
 	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +27,7 @@ public class Author {
 	@Column(name = "author_last_name")
 	private String lastName;
 	
-	private List<Book> books;
+//	private List<Book> books;
 	
 	public int getId() {
 		return id;
@@ -44,10 +47,16 @@ public class Author {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public List<Book> getBooks() {
-		return books;
-	}
-	public void setBooks(List<Book> books) {
-		this.books = books;
+//	public List<Book> getBooks() {
+//		return books;
+//	}
+//	public void setBooks(List<Book> books) {
+//		this.books = books;
+//	}
+	@Override
+	public String toString() {
+		return "Author [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", "
+				+ "books=" + "]";
 	}	
+	
 }

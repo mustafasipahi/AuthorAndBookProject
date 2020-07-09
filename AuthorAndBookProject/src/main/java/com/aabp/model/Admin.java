@@ -3,7 +3,7 @@ package com.aabp.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class Admin {
 
 	@Column(name = "admin_name")

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aabp.model.Book;
+import com.aabp.service.BookService;
 import com.aabp.service.impl.BookServiceImpl;
 
 @RestController
@@ -18,44 +19,44 @@ import com.aabp.service.impl.BookServiceImpl;
 public class BookController {
 
 	@Autowired
-	private BookServiceImpl bookServiceImpl;
+	private BookService bookService;
 	
 	@PostMapping("/book/save")
 	@ResponseBody
 	public void save(Book book) {
-		bookServiceImpl.save(book);
+		bookService.save(book);
 	}
 	
 	@PostMapping("/book/update/{id}")
 	@ResponseBody
-	public void update(Book book,@PathVariable("id") Long id) {
-		bookServiceImpl.update(book,id);
+	public void update(Book book,@PathVariable("id") int id) {
+		bookService.update(book,id);
 	}
 	
 	@RequestMapping("/book/delete/{id}")
 	@ResponseBody
-	public void delete(@PathVariable("id") Long id) {
-		bookServiceImpl.delete(id);
+	public void delete(@PathVariable("id") int id) {
+		bookService.delete(id);
 	}
 	
 	@GetMapping("/search/{id}")
 	@ResponseBody
-	public Book findByBookId(@PathVariable("id")Long id) {
-		Book book = bookServiceImpl.findByBookId(id);
+	public Book findByBookId(@PathVariable("id")int id) {
+		Book book = bookService.findByBookId(id);
 		return book;
 	}
 	
-	@GetMapping("/search/{bookName}")
+	@GetMapping("/search/bookName")
 	@ResponseBody
 	public List<Book> findByName(@PathVariable("bookName")String bookName){
-		List<Book> bookList = bookServiceImpl.findByName(bookName);
+		List<Book> bookList = bookService.findByName(bookName);
 		return bookList;
 	}
 	
 	@GetMapping("/search/all")
 	@ResponseBody
 	public List<Book> getAll(){
-		List<Book> bookList = bookServiceImpl.getAll();
+		List<Book> bookList = bookService.getAll();
 		return bookList;
 	}
 }

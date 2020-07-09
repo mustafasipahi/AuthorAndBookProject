@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Book {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "book_id")
 	private int id;
 	
@@ -20,7 +20,7 @@ public class Book {
 	private String bookName;
 	
 	@Column(name = "book_author_name")
-	private String author;
+	private String bookAuthor;
 
 	public int getId() {
 		return id;
@@ -38,11 +38,17 @@ public class Book {
 		this.bookName = bookName;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getBookAuthor() {
+		return bookAuthor;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}	
+	public void setBookAuthor(String bookAuthor) {
+		this.bookAuthor = bookAuthor;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", bookName=" + bookName + ", author=" + bookAuthor + "]";
+	}
+	
 }

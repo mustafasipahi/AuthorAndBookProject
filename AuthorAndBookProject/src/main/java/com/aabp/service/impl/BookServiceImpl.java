@@ -25,7 +25,7 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	@Transactional
-	public void update(Book book, Long id) {
+	public void update(Book book, int id) {
 		Book newBook = bookDao.findByBookId(id);
 		newBook = book;
 		bookDao.save(newBook);
@@ -33,14 +33,13 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	@Transactional
-	public void delete(Long id) {
+	public void delete(int id) {
 		bookDao.deleteById(id);
 	}
 
 	@Override
-	public Book findByBookId(Long id) {
-		Book book = bookDao.findByBookId(id);
-		return book;
+	public Book findByBookId(int id) {
+		return bookDao.findByBookId(id);		
 	}
 
 	@Override
