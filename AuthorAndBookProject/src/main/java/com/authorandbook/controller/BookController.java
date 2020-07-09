@@ -1,4 +1,4 @@
-package com.aabp.controller;
+package com.authorandbook.controller;
 
 import java.util.List;
 
@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aabp.model.Book;
-import com.aabp.service.BookService;
-import com.aabp.service.impl.BookServiceImpl;
+import com.authorandbook.model.Book;
+import com.authorandbook.service.BookService;
 
 @RestController
 @RequestMapping("/library")

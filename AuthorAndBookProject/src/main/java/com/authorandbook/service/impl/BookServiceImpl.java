@@ -1,21 +1,19 @@
-package com.aabp.service.impl;
+package com.authorandbook.service.impl;
 
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aabp.dao.BookDAO;
-import com.aabp.model.Book;
-import com.aabp.service.BookService;
+import com.authorandbook.model.Book;
+import com.authorandbook.repository.BookRepository;
+import com.authorandbook.service.BookService;
 
 @Service
 public class BookServiceImpl implements BookService{
 
 	@Autowired
-	private BookDAO bookDao;
+	private BookRepository bookDao;
 	
 	@Override
 	@Transactional
@@ -53,7 +51,4 @@ public class BookServiceImpl implements BookService{
 		List<Book> newList = bookDao.getAll();
 		return newList;
 	}
-
-	
-
 }

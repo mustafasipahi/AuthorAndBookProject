@@ -1,10 +1,8 @@
-package com.aabp.service;
+package com.authorandbook.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
-import com.aabp.model.Book;
+import com.authorandbook.model.Book;
 
 @Service
 public interface BookService {

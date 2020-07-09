@@ -1,4 +1,4 @@
-package com.aabp.dao;
+package com.authorandbook.repository;
 
 import java.util.List;
 
@@ -6,11 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import com.aabp.model.Book;
+import com.authorandbook.model.Book;
 
 @Repository
-public interface BookDAO extends CrudRepository<Book, Integer> {
+public interface BookRepository extends CrudRepository<Book, Integer> {
 
 	@Query("SELECT b FROM Book b WHERE b.id =:id")
 	public Book findByBookId(@Param("id")int id);

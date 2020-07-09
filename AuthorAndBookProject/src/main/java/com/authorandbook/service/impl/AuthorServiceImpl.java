@@ -1,21 +1,19 @@
-package com.aabp.service.impl;
+package com.authorandbook.service.impl;
 
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aabp.dao.AuthorDAO;
-import com.aabp.model.Author;
-import com.aabp.service.AuthorService;
+import com.authorandbook.model.Author;
+import com.authorandbook.repository.AuthorRepository;
+import com.authorandbook.service.AuthorService;
 
 @Service
-public class AutHorServiceImpl implements AuthorService{
+public class AuthorServiceImpl implements AuthorService{
 
 	@Autowired
-	private AuthorDAO authorDAO;
+	private AuthorRepository authorDAO;
 	
 	@Override
 	@Transactional
@@ -25,7 +23,7 @@ public class AutHorServiceImpl implements AuthorService{
 
 	@Override
 	@Transactional
-	public void update(Author author, Long id) {
+	public void update(Author author, int id) {
 		Author newAuthor = authorDAO.findById(id);
 		newAuthor = author;
 		authorDAO.save(newAuthor);
@@ -38,7 +36,7 @@ public class AutHorServiceImpl implements AuthorService{
 	}
 
 	@Override
-	public Author findByAuthorId(Long id) {
+	public Author findByAuthorId(int id) {
 		Author newAuthor = authorDAO.findById(id);		
 		return newAuthor;
 	}
@@ -48,5 +46,4 @@ public class AutHorServiceImpl implements AuthorService{
 		List<Author> allAuthors = authorDAO.listAllAuthor();
 		return allAuthors;
 	}
-
 }
