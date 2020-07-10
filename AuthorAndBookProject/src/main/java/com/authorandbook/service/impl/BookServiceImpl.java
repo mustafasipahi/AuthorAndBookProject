@@ -5,7 +5,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.authorandbook.dto.BookDTO;
 import com.authorandbook.model.Book;
 import com.authorandbook.repository.BookRepository;
 import com.authorandbook.service.BookService;

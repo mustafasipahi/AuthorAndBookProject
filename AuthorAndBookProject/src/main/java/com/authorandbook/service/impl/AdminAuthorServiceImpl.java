@@ -6,33 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.authorandbook.model.Author;
-import com.authorandbook.repository.AuthorRepository;
+import com.authorandbook.repository.AdminAuthorRepository;
 import com.authorandbook.service.AdminAuthorService;
 
 @Service
 public class AdminAuthorServiceImpl implements AdminAuthorService{
 
 	@Autowired
-	private AuthorRepository authorRepository;
+	private AdminAuthorRepository adminAuthorRepository;
 	
 	@Override
 	@Transactional
-	public void saveAuthor(Author author) {
-		authorRepository.save(author);
+	public Author findById(int id) {
+		return adminAuthorRepository.findById(id);
+	}
+	
+	@Override
+	@Transactional
+	public void save(Author author) {
+		adminAuthorRepository.save(author);
 	}
 
 	@Override
 	@Transactional
 	public void updateAuthor(Author author, int id) {
-		Author newAuthor = authorRepository.findById(id);
+		Author newAuthor = adminAuthorRepository.findById(id);
 		newAuthor = author;
-		authorRepository.save(newAuthor);
+		adminAuthorRepository.save(newAuthor);
 	}
 
 	@Override
 	@Transactional
 	public void deleteAuthor(int id) {
-		authorRepository.deleteById(id);
+		adminAuthorRepository.deleteById(id);
 	}
 
 }

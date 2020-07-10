@@ -38,14 +38,14 @@ public class BookController {
 		bookService.delete(id);
 	}
 	
-	@GetMapping("/search/{id}")
+	@GetMapping("/book/search/{id}")
 	@ResponseBody
 	public Book findByBookId(@PathVariable("id")int id) {
 		Book book = bookService.findByBookId(id);
 		return book;
 	}
 	
-	@GetMapping("/search/bookName")
+	@GetMapping("/book/search/bookName")
 	@ResponseBody
 	public List<Book> findByName(@PathVariable("bookName")String bookName){
 		List<Book> bookList = bookService.findByName(bookName);

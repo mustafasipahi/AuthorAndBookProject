@@ -7,7 +7,8 @@ import com.authorandbook.model.Author;
 @Service
 public interface AdminAuthorService {
 
-	public void saveAuthor(Author author);
+	public Author findById(int id);
+	public void save(Author author);
 	public void updateAuthor(Author author, int id);
 	public void deleteAuthor(int id);	
 }

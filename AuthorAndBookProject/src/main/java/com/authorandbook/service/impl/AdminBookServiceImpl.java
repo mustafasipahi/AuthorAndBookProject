@@ -6,33 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.authorandbook.model.Book;
-import com.authorandbook.repository.BookRepository;
+import com.authorandbook.repository.AdminBookRepository;
 import com.authorandbook.service.AdminBookService;
 
 @Service
 public class AdminBookServiceImpl implements AdminBookService{
 
 	@Autowired
-	private BookRepository bookRepository;
+	private AdminBookRepository adminBookRepository;
+	
+	@Override
+	@Transactional
+	public Book findByBookId(int id) {
+		return adminBookRepository.findByBookId(id);	
+	}
 	
 	@Override
 	@Transactional
 	public void saveBook(Book book) {
-		bookRepository.save(book);
+		adminBookRepository.save(book);
 	}
 
 	@Override
 	@Transactional
 	public void updateBook(Book book, int id) {
-		Book newBook = bookRepository.findByBookId(id);
+		Book newBook = adminBookRepository.findByBookId(id);
 		newBook = book;
-		bookRepository.save(newBook);
+		adminBookRepository.save(newBook);
 	}
 
 	@Override
 	@Transactional
 	public void deleteBook(int id) {
-		bookRepository.deleteById(id);
+		adminBookRepository.deleteById(id);
 	}
 
 }
