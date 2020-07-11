@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.authorandbook.model.Author;
 import com.authorandbook.model.Book;
+import com.authorandbook.repository.BookRepository;
 import com.authorandbook.service.AuthorService;
 import com.authorandbook.service.BookService;
 import com.authorandbook.service.impl.BookServiceImpl;
@@ -18,10 +19,10 @@ import com.authorandbook.service.impl.BookServiceImpl;
 public class BookServiceImplTest {
 
 	@Autowired
-	private BookServiceImpl bookServiceImpl;
+	private BookRepository bookServiceImpl;
 	
-	@Autowired
-	private AuthorService authorService;
+//	@Autowired
+//	private AuthorService authorService;
 	
 	@Test
 	public void saveTest() {
@@ -37,11 +38,14 @@ public class BookServiceImplTest {
 		//assertTrue(testbook2.getId() > 0);
 		
 		
-		Author author = new Author();
-		author.setId(15);
-		author.setFirstName("TestFirstName");
-		author.setLastName("TestLastName");
-		authorService.save(author);
+//		Author author = new Author();
+//		author.setId(15);
+//		author.setFirstName("TestFirstName");
+//		author.setLastName("TestLastName");
+//		authorService.save(author);
+		
+		BookServiceImpl bImpl = new BookServiceImpl();
+		bImpl.findByBookId(1);
 		
 	}
 }

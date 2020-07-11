@@ -42,5 +42,4 @@ public class AdminAuthorServiceImpl implements AdminAuthorService{
 			adminAuthorRepository.deleteById(id);
 		}
 	}
-
 }
