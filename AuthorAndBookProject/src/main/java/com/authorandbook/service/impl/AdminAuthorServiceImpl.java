@@ -38,7 +38,9 @@ public class AdminAuthorServiceImpl implements AdminAuthorService{
 	@Override
 	@Transactional
 	public void deleteAuthor(int id) {
-		adminAuthorRepository.deleteById(id);
+		if (adminAuthorRepository.findById(id) != null) {
+			adminAuthorRepository.deleteById(id);
+		}
 	}
 
 }

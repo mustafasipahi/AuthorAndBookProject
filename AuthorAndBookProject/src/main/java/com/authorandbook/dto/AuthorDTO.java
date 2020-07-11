@@ -9,7 +9,7 @@ public class AuthorDTO {
 	private int id;
 	private String firstName;
 	private String lastName;
-	private List<Book> books;
+	//private List<Book> books;
 	
 	public int getId() {
 		return id;
@@ -29,11 +29,11 @@ public class AuthorDTO {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public List<Book> getBooks() {
-		return books;
-	}
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
+//	public List<Book> getBooks() {
+//		return books;
+//	}
+//	public void setBooks(List<Book> books) {
+//		this.books = books;
+//	}
 	
 }

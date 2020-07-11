@@ -32,7 +32,9 @@ public class BookServiceImpl implements BookService{
 	@Override
 	@Transactional
 	public void delete(int id) {
-		bookRep.deleteById(id);
+		if (bookRep.findByBookId(id) != null) {
+			bookRep.deleteById(id);			
+		}
 	}
 
 	@Override

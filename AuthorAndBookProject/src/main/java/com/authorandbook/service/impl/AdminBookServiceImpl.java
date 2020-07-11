@@ -38,7 +38,9 @@ public class AdminBookServiceImpl implements AdminBookService{
 	@Override
 	@Transactional
 	public void deleteBook(int id) {
-		adminBookRepository.deleteById(id);
+		if (adminBookRepository.findByBookId(id) != null) {
+			adminBookRepository.deleteById(id);			
+		}
 	}
 
 }

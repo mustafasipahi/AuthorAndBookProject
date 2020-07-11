@@ -19,13 +19,17 @@ public class Console implements CommandLineRunner{
 //	@Autowired
 //	private AuthorService authorService;
 	
-//	@Autowired
-//	private BookService bookService;
+	@Autowired
+	private BookServiceImpl bookServiceimpl;
 	
 	@Override
 	public void run(String... args) throws Exception {
 
-		
+		Book testBook = new Book();
+		testBook.setId(10);
+		testBook.setBookName("Test Name");
+		testBook.setBookAuthor("Test Author");
+		bookServiceimpl.save(testBook);		
 	}
 
 }

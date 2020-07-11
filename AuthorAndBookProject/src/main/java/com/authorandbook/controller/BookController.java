@@ -45,12 +45,12 @@ public class BookController {
 		return book;
 	}
 	
-	@GetMapping("/book/search/bookName")
-	@ResponseBody
-	public List<Book> findByName(@PathVariable("bookName")String bookName){
-		List<Book> bookList = bookService.findByName(bookName);
-		return bookList;
-	}
+//	@GetMapping("/book/search/bookName")
+//	@ResponseBody
+//	public List<Book> findByName(@PathVariable("bookName")String bookName){
+//		List<Book> bookList = bookService.findByName(bookName);
+//		return bookList;
+//	}
 	
 	@GetMapping("/search/all")
 	@ResponseBody

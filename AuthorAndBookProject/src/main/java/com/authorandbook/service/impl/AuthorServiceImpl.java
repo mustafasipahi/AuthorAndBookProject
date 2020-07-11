@@ -32,7 +32,9 @@ public class AuthorServiceImpl implements AuthorService{
 	@Override
 	@Transactional
 	public void delete(int id) {
-		authorRep.deleteById(id);
+		if (authorRep.findById(id) != null) {
+			authorRep.deleteById(id);			
+		}
 	}
 
 	@Override

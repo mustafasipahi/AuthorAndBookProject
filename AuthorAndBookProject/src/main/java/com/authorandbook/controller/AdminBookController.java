@@ -24,7 +24,7 @@ public class AdminBookController {
 	
 	@PostMapping("/book/save")
 	@ResponseBody
-	public void saveBook(Book book) {
+	public void save(Book book) {
 		adminBookService.saveBook(book);
 	}
 	
